@@ -1,0 +1,17 @@
+export const exceptionsMessages = {
+  emailIsNotValid: 'אימייל לא תקני',
+  emailIsNotReal: 'אימייל לא אמיתי',
+  emailAlreadyExists: 'אימייל קיים כבר במערכת',
+  idIsNaN: 'id צריך להיות מספר',
+  firstnameIsNotText: 'שם פרטי צריך להיות מורכב רק מתווים',
+  firstnameIsEmpty: 'שם פרטי ריק',
+  lastnameIsNotText: 'שם משפחה צריך להיות מורכב רק מתווים',
+  lastnameIsEmpty: 'שם משפחה ריק',
+  phoneNumIsNotText: 'מספר טלפון צריך להיות מורכב רק מתווים',
+  phoneNumIsEmpty: 'מספר טלפון ריק',
+  birthdateIsNotValid: 'תאריך לידה לא תקני',
+  passwordIsNotText: 'סיסמה מכילה בתוכה רק תווים',
+  passwordIsTooShort: 'סיסמה צריכה להיות באורך של לפחות 8 תווים',
+  passwordIsNotValid: `סיסמה צריכה להכיל אותיות באנגלית ומספרים בלבד,
+  כאשר אות אחת לפחות צריכה להיות גדולה ואחת קטנה`,
+};
