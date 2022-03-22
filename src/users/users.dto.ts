@@ -2,10 +2,7 @@ import {
   IsDateString,
   IsEmail,
   IsInt,
-  IsNotEmpty,
-  IsString,
   Matches,
-  MaxDate,
   MinLength,
 } from 'class-validator';
 import { __ } from 'ramda';
@@ -15,19 +12,16 @@ export class User {
   @IsInt({ message: exceptionsMessages.idIsNaN })
   id?: number;
 
-  @IsString({ message: exceptionsMessages.firstnameIsNotText })
-  @IsNotEmpty({ message: exceptionsMessages.firstnameIsEmpty })
+  @Matches(/^[א-ת]+$/, { message: exceptionsMessages.firstnameIsNotValid })
   firstname?: string;
 
-  @IsString({ message: exceptionsMessages.lastnameIsNotText })
-  @IsNotEmpty({ message: exceptionsMessages.lastnameIsEmpty })
+  @Matches(/^[א-ת]+$/, { message: exceptionsMessages.lastnameIsNotValid })
   lastname?: string;
 
   @IsEmail(__, { message: exceptionsMessages.emailIsNotValid })
   email?: string;
 
-  @IsString({ message: exceptionsMessages.phoneNumIsNotText })
-  @IsNotEmpty({ message: exceptionsMessages.phoneNumIsEmpty })
+  @Matches(/^\d+$/, { message: exceptionsMessages.phoneNumIsNotValid })
   phoneNum?: string;
 
   @IsDateString(__, { message: exceptionsMessages.birthdateIsNotValid })

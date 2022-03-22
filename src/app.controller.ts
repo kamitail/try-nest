@@ -1,4 +1,4 @@
-import { Controller, Get, Param, ParseIntPipe } from '@nestjs/common';
+import { Controller, Get } from '@nestjs/common';
 import { AppService } from './app.service';
 
 @Controller()
@@ -9,11 +9,5 @@ export class AppController {
   @Get()
   splitMoney(): any {
     return this.appService.splitMoney();
-  }
-
-  @Get(':a')
-  showParams(@Param('a', ParseIntPipe) b: number) {
-    this.appService.getHello();
-    return b;
   }
 }
