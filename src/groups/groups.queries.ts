@@ -3,6 +3,18 @@ mutation($group: groups_insert_input!) {
     insert_groups_one(object: $group) {
       id
       name
+     groupMembers {
+        isOwner
+        id
+        user {
+        birthdate
+        email
+        firstname
+        id
+        lastname
+        phoneNum
+        }
+     } 
     }
   }
 `;
@@ -53,4 +65,29 @@ mutation ($membersIds: [Int!]!, $groupId: Int!) {
       affected_rows
     }
   }
+`;
+
+export const updateGroupName = `
+mutation($groupId: Int!, $name: String!) {
+    update_groups(where: {id: {_eq: $groupId}}, _set: {name: $name}) {
+      affected_rows
+    }
+  }  
+`;
+
+export const getGroupOwnersByGroupId = `
+query ($groupId: Int!) {
+  group_members(where: {groupId: {_eq: $groupId}, isOwner: {_eq: true}}) {
+    isOwner
+    id
+    user {
+      birthdate
+      email
+      firstname
+      id
+      lastname
+      phoneNum
+    }
+  }
+}
 `;

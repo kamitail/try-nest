@@ -16,4 +16,6 @@ export const exceptionsMessages = {
   userIsNotAuth: 'למשתמש אין הרשאות',
   groupNameIsNotText: 'שם הקבוצה צריך להכיל רק תווים',
   groupNameIsEmpty: 'שם הקבוצה ריק',
+  fileIsNotValid: 'הקובץ שנשלח אינו תקין',
+  fileUploadFailed: 'העלאת הקובץ נכשלה',
 };

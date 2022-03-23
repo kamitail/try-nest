@@ -1,11 +1,13 @@
 import { Injectable } from '@nestjs/common';
 import { map } from 'ramda';
-import { ClientService } from 'src/hasura/client.service';
+import { ClientService } from '../hasura/client.service';
 import { Group } from './groups.dto';
 import {
   deleteGroupMembers,
+  getGroupOwnersByGroupId,
   insertGroup,
   insertGroupMembers,
+  updateGroupName,
 } from './groups.queries';
 import { GroupMember } from './members.dto';
 
@@ -42,5 +44,17 @@ export class GroupsService {
         groupId,
       })
     ).data.delete_group_members.affected_rows;
+  }
+
+  async updateGroupName(groupId: number, name: string): Promise<number> {
+    return (
+      await this.clientService.clientQuery(updateGroupName, { groupId, name })
+    ).data.update_groups.affected_rows;
+  }
+
+  async getGroupOwnersByGroupId(groupId: number): Promise<GroupMember[]> {
+    return (
+      await this.clientService.clientQuery(getGroupOwnersByGroupId, { groupId })
+    ).data.group_members;
   }
 }

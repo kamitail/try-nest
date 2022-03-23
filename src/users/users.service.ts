@@ -10,8 +10,8 @@ import {
   findUserByEmailAndPassword,
   insertUser,
 } from './users.queries';
-import { Group } from 'src/groups/groups.dto';
-import { findGroupsByMemberId } from 'src/groups/groups.queries';
+import { Group } from '../groups/groups.dto';
+import { findGroupsByMemberId } from '../groups/groups.queries';
 
 @Injectable()
 export class UsersService {

@@ -2,6 +2,7 @@ import { ArgumentMetadata, ValidationPipe } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { Test, TestingModule } from '@nestjs/testing';
 import { DateTime } from 'luxon';
+import { FilesModule } from '../files/files.module';
 import { AuthModule } from '../auth/auth.module';
 import { ClientModule } from '../hasura/client.module';
 import { UsersController } from './users.controller';
@@ -23,6 +24,7 @@ describe('UsersController', () => {
         ConfigModule.forRoot({ isGlobal: true }),
         ClientModule,
         AuthModule,
+        FilesModule,
       ],
       controllers: [UsersController],
       providers: [UsersService],

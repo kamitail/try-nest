@@ -15,9 +15,6 @@ describe('GroupsController', () => {
     data: '',
   };
   beforeEach(async () => {
-    //     const app: TestingModule = await Test.createTestingModule({
-    //       imports: [ConfigModule.forRoot({ isGlobal: true })],
-    //     }).compile();
     target = new ValidationPipe({ skipMissingProperties: true });
   });
 
